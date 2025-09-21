@@ -378,10 +378,39 @@
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
+    .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
     }
+    
+    .header-content {
+        justify-content: flex-start;
+    }
+    
+    nav {
+        display: none; /* Hide regular nav on mobile */
+    }
+    
+    /* Rest of existing mobile styles... */
     
     nav ul {
         position: fixed;
