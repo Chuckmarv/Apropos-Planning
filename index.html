@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apropos Planning - Family Benefits</title>
+    <title>Apropos Planning Services - Family Benefits Consulting</title>
     <style>
         * {
             margin: 0;
@@ -41,6 +41,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
+            position: relative;
         }
 
         .logo {
@@ -53,6 +54,38 @@
 
         .logo:hover {
             color: #667eea;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #4a5568;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
         }
 
         nav ul {
@@ -84,8 +117,8 @@
         }
 
         main {
-            margin-top: 120px;
-            min-height: calc(100vh - 120px);
+            margin-top: 100px;
+            min-height: calc(100vh - 100px);
         }
 
         .tab-content {
@@ -350,103 +383,70 @@
         .link-category a:hover {
             color: #764ba2;
         }
-        .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 0.5rem;
-}
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: #4a5568;
-    margin: 3px 0;
-    transition: 0.3s;
-    border-radius: 3px;
-}
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
 
-.hamburger.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
+            .header-content {
+                justify-content: flex-start;
+            }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
 
-.hamburger.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
 
-    .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-    position: relative;
-}
+            nav ul {
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 0;
+            }
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 0.5rem;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
+            nav ul li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
 
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-    
-    .header-content {
-        justify-content: flex-start;
-    }
-    
-    nav {
-        display: none; /* Hide regular nav on mobile */
-    }
-    
-    /* Rest of existing mobile styles... */
-    
-    nav ul {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 2rem;
-        transition: left 0.3s ease;
-        z-index: 999;
-    }
-    
-    nav ul.active {
-        left: 0;
-    }
-    
-    nav ul li {
-        margin: 0.5rem 0;
-    }
+            nav a {
+                display: block;
+                padding: 1rem;
+                border-radius: 0;
+            }
 
-    main {
-        margin-top: 80px;
-        min-height: calc(100vh - 80px);
-    }
-    
-    .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-     
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .tab-content {
+                padding: 2rem 1rem;
+            }
+
+            main {
+                margin-top: 80px;
+                min-height: calc(100vh - 80px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -454,24 +454,23 @@
         <div class="container">
             <div class="header-content">
                 <a href="#home" class="logo">Apropos Planning</a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <nav>
                     <ul>
-                        <li><a href="#home" class="nav-link active">Home</a></li>
-                        <li><a href="#about" class="nav-link">About</a></li>
-                        <li><a href="#services" class="nav-link">Services</a></li>
-                        <li><a href="#fees" class="nav-link">Fees</a></li>
-                        <li><a href="#resources" class="nav-link">Resources</a></li>
-                        <li><a href="#links" class="nav-link">Links</a></li>
-                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                        <li><a href="#home" class="nav-link active">HOME</a></li>
+                        <li><a href="#about" class="nav-link">ABOUT</a></li>
+                        <li><a href="#services" class="nav-link">SERVICES</a></li>
+                        <li><a href="#fees" class="nav-link">OUR FEES</a></li>
+                        <li><a href="#resources" class="nav-link">RESOURCES</a></li>
+                        <li><a href="#links" class="nav-link">LINKS</a></li>
+                        <li><a href="#contact" class="nav-link">CONTACT</a></li>
                     </ul>
                 </nav>
             </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-                            
         </div>
     </header>
 
@@ -487,7 +486,7 @@
 
         <!-- ABOUT -->
         <div id="about" class="tab-content">
-            <h2 class="section-title">About Apropos</h2>
+            <h2 class="section-title">About Apropos Planning Services</h2>
             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
                 At Apropos Planning Services, we understand the unique challenges families face when planning for the future of their young adults with special needs. Our mission is to provide expert guidance through the complex landscape of family services benefits, ensuring families receive the support and resources they deserve.
             </p>
@@ -660,9 +659,9 @@
 
         <!-- CONTACT -->
         <div id="contact" class="tab-content">
-            <h2 class="section-title">Get in touch!</h2>
+            <h2 class="section-title">Contact Us</h2>
             <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
-                Ready to get started? We'd love to chat with you about shared experiences!
+                Ready to get started? Contact us today for your free 30-minute consultation.
             </p>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
                 <div>
@@ -721,89 +720,97 @@
     </main>
 
     <script>
-    // Navigation functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('.nav-link');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('nav ul');
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
 
-        // Hamburger menu functionality
-        if (hamburger) {
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
+            // Hamburger menu functionality
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    nav.classList.toggle('active');
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Close hamburger menu when clicking nav links
+                    if (hamburger) {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                    }
+                    
+                    // Remove active class from all nav links
+                    navLinks.forEach(nl => nl.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(tc => tc.classList.remove('active'));
+                    
+                    // Show target tab content
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetTab = document.getElementById(targetId);
+                    if (targetTab) {
+                        targetTab.classList.add('active');
+                        
+                        // Smooth scroll to top
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
-        }
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
+            // Handle CTA button click
+            document.querySelector('.cta-button').addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Close hamburger menu when clicking nav links
+                // Close hamburger menu
                 if (hamburger) {
                     hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
+                    nav.classList.remove('active');
                 }
                 
-                // Remove active class from all nav links
+                // Remove active from all nav links
                 navLinks.forEach(nl => nl.classList.remove('active'));
                 
-                // Add active class to clicked link
-                this.classList.add('active');
+                // Add active to contact link
+                document.querySelector('a[href="#contact"]').classList.add('active');
                 
-                // Hide all tab contents
+                // Hide all tabs and show contact
                 tabContents.forEach(tc => tc.classList.remove('active'));
+                document.getElementById('contact').classList.add('active');
                 
-                // Show target tab content
-                const targetId = this.getAttribute('href').substring(1);
-                const targetTab = document.getElementById(targetId);
-                if (targetTab) {
-                    targetTab.classList.add('active');
-                    
-                    // Smooth scroll to top
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
+                // Smooth scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Form submission handler
+            document.querySelector('form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will contact you within 24 hours.');
+                this.reset();
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
                 }
             });
         });
-
-        // Handle CTA button click
-        document.querySelector('.cta-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Close hamburger menu
-            if (hamburger) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-            
-            // Remove active from all nav links
-            navLinks.forEach(nl => nl.classList.remove('active'));
-            
-            // Add active to contact link
-            document.querySelector('a[href="#contact"]').classList.add('active');
-            
-            // Hide all tabs and show contact
-            tabContents.forEach(tc => tc.classList.remove('active'));
-            document.getElementById('contact').classList.add('active');
-            
-            // Smooth scroll to top
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will contact you within 24 hours.');
-            this.reset();
-        });
-    });
-</script>
+    </script>
 </body>
 </html>
