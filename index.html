@@ -446,6 +446,12 @@
                 margin-top: 80px;
                 min-height: calc(100vh - 80px);
             }
+            .contact-grid {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+            
         }
     </style>
 </head>
@@ -663,7 +669,8 @@
             <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
                 Ready to get started? Contact us today for your free 30-minute consultation.
             </p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                
+            <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">  
                 <div>
                     <div class="contact-form">
                         <h3 style="margin-bottom: 1.5rem; color: #4a5568;">Send us a message</h3>
